@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+
+# air writes the hot-reload binary here
+tmp
+
+bin/
+vendor/
+*.test
+*.out
+coverage.*
