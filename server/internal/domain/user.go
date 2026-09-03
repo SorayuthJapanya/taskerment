@@ -9,7 +9,7 @@ import (
 )
 
 type User struct {
-	ID           uuid.UUID      `json:"id" 	gorm:"type:uuid;primaryKey"`
+	ID           uuid.UUID      `json:"id"         gorm:"type:uuid;primaryKey"`
 	Username     string         `json:"username" gorm:"type:varchar(100);uniqueIndex;not null"`
 	Name         string         `json:"name" gorm:"type:varchar(100);not null"`
 	PasswordHash string         `json:"-" gorm:"type:varchar(255);not null"`
@@ -31,5 +31,4 @@ type UserRepository interface {
 	FindByUsername(ctx *context.Context, username string) (*User, error)
 	ExistsUsername(ctx *context.Context, username string) (bool, error)
 	Update(ctx context.Context, user *User) error
-	Delete(ctx context.Context, id uuid.UUID) error
 }
