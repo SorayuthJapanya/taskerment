@@ -1,12 +1,10 @@
 package domain
 
 import (
-	"container/list"
 	"context"
 	"time"
 
 	"github.com/google/uuid"
-	"golang.org/x/text/cases"
 	"gorm.io/gorm"
 )
 
@@ -66,7 +64,7 @@ func (p TaskPriority) Valid() bool {
 type Task struct {
 	ID          uuid.UUID      `json:"id" gorm:"type:uuid;primaryKey"`
 	Key         string         `json:"key" gorm:"type:varchar(20);uniqueIndex;not null"`
-	Title       string         `json:"title" gorm:"type:varchar(200):not nul"`
+	Title       string         `json:"title" gorm:"type:varchar(200);not null"`
 	Description string         `json:"description" gorm:"type:text"`
 	Status      TaskStatus     `json:"status" gorm:"type:varchar(20);not null;defualt:todo;index;"`
 	Priority    TaskPriority   `json:"priotiry" gorm:"type:varchar(20);not null;default:medium;index"`

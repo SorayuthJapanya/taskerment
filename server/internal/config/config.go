@@ -53,7 +53,7 @@ func Load() (*Config, error) {
 	}
 
 	// Validate Refresh TTL
-	if cfg.AccessTTL, err = getDuration("JWT_REFRESH_TTL", 168*time.Minute); err != nil {
+	if cfg.RefreshTTL, err = getDuration("JWT_REFRESH_TTL", 168*time.Hour); err != nil {
 		return nil, err
 	}
 

@@ -32,9 +32,9 @@ func (p *Project) BeforeCreate(tx *gorm.DB) error {
 
 type ProjectRepository interface {
 	Create(ctx context.Context, project *Project) error
-	FindByID(ctx context.Context, id uuid.UUIDs) (*Project, error)
+	FindByID(ctx context.Context, id uuid.UUID) (*Project, error)
 	FindByKey(ctx context.Context, key string) (*Project, error)
-	ListForUser(ctx context.Context, userID uuid.UUIDs) ([]Project, error)
+	ListForUser(ctx context.Context, userID uuid.UUID) ([]Project, error)
 	Update(ctx context.Context, project *Project) error
 	Delete(ctx context.Context, id uuid.UUID) error
 
